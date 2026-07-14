@@ -80,7 +80,9 @@ public class Book {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(
+            String title
+    ) {
         this.title = title;
     }
 
@@ -88,7 +90,9 @@ public class Book {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(
+            String author
+    ) {
         this.author = author;
     }
 
@@ -96,7 +100,9 @@ public class Book {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
+    public void setIsbn(
+            String isbn
+    ) {
         this.isbn = isbn;
     }
 
@@ -104,7 +110,9 @@ public class Book {
         return category;
     }
 
-    public void setCategory(BookCategory category) {
+    public void setCategory(
+            BookCategory category
+    ) {
         this.category = category;
     }
 
@@ -112,7 +120,9 @@ public class Book {
         return status;
     }
 
-    public void setStatus(BookStatus status) {
+    public void setStatus(
+            BookStatus status
+    ) {
         this.status = status;
     }
 
