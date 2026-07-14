@@ -1,7 +1,9 @@
 package com.aman.LibraryManagementSystem.controller;
 
-import com.aman.LibraryManagementSystem.entity.Book;
+import com.aman.LibraryManagementSystem.dto.request.BookRequest;
+import com.aman.LibraryManagementSystem.dto.response.BookResponse;
 import com.aman.LibraryManagementSystem.service.BookService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,9 +19,11 @@ public class BookController {
     }
 
     @PostMapping
-    public Book createBook(
-            @RequestBody Book book
+    public BookResponse createBook(
+            @Valid
+            @RequestBody BookRequest request
     ) {
-        return bookService.save(book);
+        return bookService.createBook(request);
     }
+
 }

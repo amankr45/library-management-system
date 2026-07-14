@@ -1,18 +1,24 @@
 package com.aman.LibraryManagementSystem.service;
 
-import com.aman.LibraryManagementSystem.entity.Book;
+import com.aman.LibraryManagementSystem.dto.request.BookRequest;
+import com.aman.LibraryManagementSystem.dto.response.BookResponse;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface BookService {
 
-    Book save(Book book);
+    BookResponse createBook(
+            BookRequest request
+    );
 
-    Optional<Book> findById(Long id);
+    BookResponse getBookById(
+            Long id
+    );
 
-    List<Book> findAll();
+    List<BookResponse> getAllBooks();
 
-    void deleteById(Long id);
+    void deleteBook(
+            Long id
+    );
 
 }

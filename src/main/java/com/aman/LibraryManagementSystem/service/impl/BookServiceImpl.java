@@ -1,43 +1,64 @@
 package com.aman.LibraryManagementSystem.service.impl;
 
+import com.aman.LibraryManagementSystem.dto.request.BookRequest;
+import com.aman.LibraryManagementSystem.dto.response.BookResponse;
 import com.aman.LibraryManagementSystem.entity.Book;
+import com.aman.LibraryManagementSystem.mapper.BookMapper;
 import com.aman.LibraryManagementSystem.repository.BookRepository;
 import com.aman.LibraryManagementSystem.service.BookService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BookServiceImpl
         implements BookService {
 
     private final BookRepository repository;
+    private final BookMapper mapper;
 
     public BookServiceImpl(
-            BookRepository repository
+            BookRepository repository,
+            BookMapper mapper
     ) {
         this.repository = repository;
+        this.mapper = mapper;
     }
 
     @Override
-    public Book save(Book book) {
-        return repository.save(book);
+    public BookResponse createBook(
+            BookRequest request
+    ) {
+
+        Book book = mapper.toEntity(request);
+        Book savedBook = repository.save(book);
+
+        return mapper.toResponse(savedBook);
     }
 
     @Override
-    public Optional<Book> findById(Long id) {
-        return repository.findById(id);
+    public BookResponse getBookById(
+            Long id
+    ) {
+        throw new UnsupportedOperationException(
+                "Not implemented yet."
+        );
     }
 
     @Override
-    public List<Book> findAll() {
-        return repository.findAll();
+    public List<BookResponse> getAllBooks() {
+        throw new UnsupportedOperationException(
+                "Not implemented yet."
+        );
     }
 
     @Override
-    public void deleteById(Long id) {
-        repository.deleteById(id);
+    public void deleteBook(
+            Long id
+    ) {
+        throw new UnsupportedOperationException(
+                "Not implemented yet."
+        );
     }
 
 }
