@@ -20,45 +20,60 @@ public class Book {
     )
     private Long id;
 
-    @Column(name = "title")
+    @Column(
+            name = "title",
+            nullable = false,
+            length = 200
+    )
     private String title;
 
-    @Column(name = "author")
+    @Column(
+            name = "author",
+            nullable = false,
+            length = 100
+    )
     private String author;
 
-    @Column(name = "isbn")
+    @Column(
+            name = "isbn",
+            nullable = false,
+            unique = true,
+            length = 20
+    )
     private String isbn;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "category")
+    @Column(
+            name = "category",
+            nullable = false
+    )
     private BookCategory category;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
+    @Column(
+            name = "status",
+            nullable = false
+    )
     private BookStatus status;
 
+    protected Book() {
+    }
+
     public Book(
-            Long id,
             String title,
             String author,
             String isbn,
-            BookCategory category,
-            BookStatus status
+            BookCategory category
     ) {
-        this.id = id;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.category = category;
-        this.status = status;
+        this.status = BookStatus.AVAILABLE;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTitle() {
