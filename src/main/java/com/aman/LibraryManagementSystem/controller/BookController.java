@@ -6,6 +6,8 @@ import com.aman.LibraryManagementSystem.service.BookService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/books")
 public class BookController {
@@ -29,4 +31,8 @@ public class BookController {
         return bookService.getBookById(id);
     }
 
+    @GetMapping
+    public List<BookResponse> getAllBooks(){
+        return bookService.getAllBooks();
+    }
 }

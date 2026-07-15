@@ -48,9 +48,10 @@ public class BookServiceImpl
 
     @Override
     public List<BookResponse> getAllBooks() {
-        throw new UnsupportedOperationException(
-                "Not implemented yet."
-        );
+        return repository.findAll()
+                .stream()
+                .map(mapper :: toResponse)
+                .toList();
     }
 
     @Override
