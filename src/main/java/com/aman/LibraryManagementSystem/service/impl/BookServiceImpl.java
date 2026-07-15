@@ -70,12 +70,10 @@ public class BookServiceImpl
     }
 
     @Override
-    public void deleteBook(
-            Long id
-    ) {
-        throw new UnsupportedOperationException(
-                "Not implemented yet."
-        );
+    public void deleteBook(Long id) {
+        Book book = repository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException(id));
+        repository.delete(book);
     }
 
 }
