@@ -3,6 +3,7 @@ package com.aman.LibraryManagementSystem.service.impl;
 import com.aman.LibraryManagementSystem.dto.request.BookRequest;
 import com.aman.LibraryManagementSystem.dto.response.BookResponse;
 import com.aman.LibraryManagementSystem.entity.Book;
+import com.aman.LibraryManagementSystem.exception.book.BookNotFoundException;
 import com.aman.LibraryManagementSystem.mapper.BookMapper;
 import com.aman.LibraryManagementSystem.repository.BookRepository;
 import com.aman.LibraryManagementSystem.service.BookService;
@@ -37,12 +38,12 @@ public class BookServiceImpl
     }
 
     @Override
-    public BookResponse getBookById(
-            Long id
-    ) {
-        throw new UnsupportedOperationException(
-                "Not implemented yet."
-        );
+    public BookResponse getBookById(Long id) {
+
+        Book book = repository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException(id));
+
+        return mapper.toResponse(book);
     }
 
     @Override

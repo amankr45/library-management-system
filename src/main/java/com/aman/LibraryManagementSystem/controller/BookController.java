@@ -12,9 +12,7 @@ public class BookController {
 
     private final BookService bookService;
 
-    public BookController(
-            BookService bookService
-    ) {
+    public BookController(BookService bookService) {
         this.bookService = bookService;
     }
 
@@ -24,6 +22,11 @@ public class BookController {
             @RequestBody BookRequest request
     ) {
         return bookService.createBook(request);
+    }
+
+    @GetMapping("/{id}")
+    public BookResponse getBookById(@PathVariable Long id){
+        return bookService.getBookById(id);
     }
 
 }

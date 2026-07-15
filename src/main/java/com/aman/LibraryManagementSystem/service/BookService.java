@@ -7,18 +7,12 @@ import java.util.List;
 
 public interface BookService {
 
-    BookResponse createBook(
-            BookRequest request
-    );
+    BookResponse createBook(BookRequest request);
 
-    BookResponse getBookById(
-            Long id
-    );
+    BookResponse getBookById(Long id);
 
     List<BookResponse> getAllBooks();
 
-    void deleteBook(
-            Long id
-    );
+    void deleteBook(Long id);
 
 }
