@@ -55,6 +55,21 @@ public class BookServiceImpl
     }
 
     @Override
+    public BookResponse updateBook(Long id,BookRequest request){
+        Book book = repository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException(id));
+
+        book.setTitle(request.getTitle());
+        book.setAuthor(request.getAuthor());
+        book.setIsbn(request.getIsbn());
+        book.setCategory(request.getCategory());
+
+        Book updateBook = repository.save(book);
+
+        return mapper.toResponse(updateBook);
+    }
+
+    @Override
     public void deleteBook(
             Long id
     ) {

@@ -13,6 +13,8 @@ public interface BookService {
 
     List<BookResponse> getAllBooks();
 
+    BookResponse updateBook(Long id,BookRequest request);
+
     void deleteBook(Long id);
 
 }

@@ -35,4 +35,11 @@ public class BookController {
     public List<BookResponse> getAllBooks(){
         return bookService.getAllBooks();
     }
+
+    @PutMapping("/{id}")
+    public BookResponse updateBook(@PathVariable Long id,
+                                   @Valid
+                                   @RequestBody BookRequest request){
+        return bookService.updateBook(id,request);
+    }
 }

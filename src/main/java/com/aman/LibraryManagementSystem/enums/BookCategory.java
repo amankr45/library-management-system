@@ -5,5 +5,6 @@ public enum BookCategory {
     FICTION,
     SCIENCE,
     HISTORY,
-    BIOGRAPHY
+    BIOGRAPHY,
+    SELF_HELP
 }
