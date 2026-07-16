@@ -7,9 +7,10 @@ import com.aman.LibraryManagementSystem.exception.book.BookNotFoundException;
 import com.aman.LibraryManagementSystem.mapper.BookMapper;
 import com.aman.LibraryManagementSystem.repository.BookRepository;
 import com.aman.LibraryManagementSystem.service.BookService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class BookServiceImpl
@@ -47,11 +48,10 @@ public class BookServiceImpl
     }
 
     @Override
-    public List<BookResponse> getAllBooks() {
-        return repository.findAll()
-                .stream()
-                .map(mapper :: toResponse)
-                .toList();
+    public Page<BookResponse> getAllBooks(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Book> books = repository.findAll(pageable);
+        return books.map(mapper::toResponse);
     }
 
     @Override

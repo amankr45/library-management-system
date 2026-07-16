@@ -1,0 +1,101 @@
+title,author,category
+Clean Code,Robert C. Martin,PROGRAMMING
+Clean Architecture,Robert C. Martin,PROGRAMMING
+The Clean Coder,Robert C. Martin,PROGRAMMING
+Effective Java,Joshua Bloch,PROGRAMMING
+Java Concurrency in Practice,Brian Goetz,PROGRAMMING
+Head First Java,Kathy Sierra,PROGRAMMING
+Spring in Action,Craig Walls,PROGRAMMING
+Spring Boot in Action,Craig Walls,PROGRAMMING
+Hibernate in Action,Gavin King,PROGRAMMING
+Design Patterns,Erich Gamma,PROGRAMMING
+Refactoring,Martin Fowler,PROGRAMMING
+Domain-Driven Design,Eric Evans,PROGRAMMING
+The Pragmatic Programmer,Andrew Hunt,PROGRAMMING
+Code Complete,Steve McConnell,PROGRAMMING
+Working Effectively with Legacy Code,Michael Feathers,PROGRAMMING
+Programming Pearls,Jon Bentley,PROGRAMMING
+Introduction to Algorithms,Thomas H. Cormen,PROGRAMMING
+Grokking Algorithms,Aditya Bhargava,PROGRAMMING
+Computer Networks,Andrew S. Tanenbaum,PROGRAMMING
+Operating System Concepts,Abraham Silberschatz,PROGRAMMING
+A Brief History of Time,Stephen Hawking,SCIENCE
+Cosmos,Carl Sagan,SCIENCE
+Astrophysics for People in a Hurry,Neil deGrasse Tyson,SCIENCE
+The Selfish Gene,Richard Dawkins,SCIENCE
+The Gene,Siddhartha Mukherjee,SCIENCE
+The Elegant Universe,Brian Greene,SCIENCE
+The Immortal Life of Henrietta Lacks,Rebecca Skloot,SCIENCE
+Silent Spring,Rachel Carson,SCIENCE
+The Origin of Species,Charles Darwin,SCIENCE
+The Demon-Haunted World,Carl Sagan,SCIENCE
+Six Easy Pieces,Richard P. Feynman,SCIENCE
+What If?,Randall Munroe,SCIENCE
+The Body: A Guide for Occupants,Bill Bryson,SCIENCE
+The Emperor of All Maladies,Siddhartha Mukherjee,SCIENCE
+Brief Answers to the Big Questions,Stephen Hawking,SCIENCE
+Sapiens,Yuval Noah Harari,HISTORY
+Homo Deus,Yuval Noah Harari,HISTORY
+Guns Germs and Steel,Jared Diamond,HISTORY
+The Silk Roads,Peter Frankopan,HISTORY
+India After Gandhi,Ramachandra Guha,HISTORY
+The Discovery of India,Jawaharlal Nehru,HISTORY
+The Lessons of History,Will Durant,HISTORY
+The Wright Brothers,David McCullough,HISTORY
+The Diary of a Young Girl,Anne Frank,HISTORY
+The Rise and Fall of the Third Reich,William L. Shirer,HISTORY
+SPQR,Mary Beard,HISTORY
+Team of Rivals,Doris Kearns Goodwin,HISTORY
+The Second World War,Antony Beevor,HISTORY
+1776,David McCullough,HISTORY
+The History of the Ancient World,Susan Wise Bauer,HISTORY
+1984,George Orwell,FICTION
+Animal Farm,George Orwell,FICTION
+The Hobbit,J.R.R. Tolkien,FICTION
+The Lord of the Rings,J.R.R. Tolkien,FICTION
+Harry Potter and the Philosopher's Stone,J.K. Rowling,FICTION
+Harry Potter and the Chamber of Secrets,J.K. Rowling,FICTION
+To Kill a Mockingbird,Harper Lee,FICTION
+Pride and Prejudice,Jane Austen,FICTION
+The Great Gatsby,F. Scott Fitzgerald,FICTION
+The Catcher in the Rye,J.D. Salinger,FICTION
+The Kite Runner,Khaled Hosseini,FICTION
+The Book Thief,Markus Zusak,FICTION
+Life of Pi,Yann Martel,FICTION
+The Chronicles of Narnia,C.S. Lewis,FICTION
+The Da Vinci Code,Dan Brown,FICTION
+Gone Girl,Gillian Flynn,FICTION
+The Shining,Stephen King,FICTION
+Dune,Frank Herbert,FICTION
+Fahrenheit 451,Ray Bradbury,FICTION
+The Alchemist,Paulo Coelho,FICTION
+Steve Jobs,Walter Isaacson,BIOGRAPHY
+Elon Musk,Walter Isaacson,BIOGRAPHY
+Einstein: His Life and Universe,Walter Isaacson,BIOGRAPHY
+Leonardo da Vinci,Walter Isaacson,BIOGRAPHY
+Long Walk to Freedom,Nelson Mandela,BIOGRAPHY
+Wings of Fire,A.P.J. Abdul Kalam,BIOGRAPHY
+Playing It My Way,Sachin Tendulkar,BIOGRAPHY
+Becoming,Michelle Obama,BIOGRAPHY
+Shoe Dog,Phil Knight,BIOGRAPHY
+My Experiments with Truth,Mahatma Gandhi,BIOGRAPHY
+The Autobiography of Malcolm X,Malcolm X,BIOGRAPHY
+Alexander Hamilton,Ron Chernow,BIOGRAPHY
+Benjamin Franklin,Walter Isaacson,BIOGRAPHY
+Churchill: Walking with Destiny,Andrew Roberts,BIOGRAPHY
+Open,Andre Agassi,BIOGRAPHY
+Atomic Habits,James Clear,SELF_HELP
+Deep Work,Cal Newport,SELF_HELP
+The Power of Habit,Charles Duhigg,SELF_HELP
+Think and Grow Rich,Napoleon Hill,SELF_HELP
+The 7 Habits of Highly Effective People,Stephen R. Covey,SELF_HELP
+Rich Dad Poor Dad,Robert T. Kiyosaki,SELF_HELP
+The Psychology of Money,Morgan Housel,SELF_HELP
+Ikigai,Héctor García and Francesc Miralles,SELF_HELP
+Can't Hurt Me,David Goggins,SELF_HELP
+Eat That Frog!,Brian Tracy,SELF_HELP
+Start With Why,Simon Sinek,SELF_HELP
+The One Thing,Gary Keller and Jay Papasan,SELF_HELP
+Mindset,Carol S. Dweck,SELF_HELP
+Essentialism,Greg McKeown,SELF_HELP
+How to Win Friends and Influence People,Dale Carnegie,SELF_HELP

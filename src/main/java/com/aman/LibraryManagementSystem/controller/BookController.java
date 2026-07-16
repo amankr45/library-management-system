@@ -4,10 +4,9 @@ import com.aman.LibraryManagementSystem.dto.request.BookRequest;
 import com.aman.LibraryManagementSystem.dto.response.BookResponse;
 import com.aman.LibraryManagementSystem.service.BookService;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/books")
@@ -33,8 +32,14 @@ public class BookController {
     }
 
     @GetMapping
-    public List<BookResponse> getAllBooks(){
-        return bookService.getAllBooks();
+    public Page<BookResponse> getAllBooks(
+            @RequestParam(defaultValue = "0")
+            int page,
+
+            @RequestParam(defaultValue = "10")
+            int size
+    ){
+        return bookService.getAllBooks(page, size);
     }
 
     @PutMapping("/{id}")
