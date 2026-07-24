@@ -9,6 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import java.util.HashMap;
+import java.util.Map;
+
 import java.time.LocalDateTime;
 
 @RestControllerAdvice
@@ -44,6 +48,28 @@ public class GlobalExceptionHandler {
                                 request
                         )
                 );
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleValidationException(
+            MethodArgumentNotValidException exception,
+            HttpServletRequest request
+    ){
+        Map<String,String> fieldErrors = new HashMap<>();
+
+        exception.getBindingResult()
+                .getFieldErrors()
+                .forEach(error ->
+                        fieldErrors.put(error.getField(),error.getDefaultMessage())
+                );
+        ErrorResponse response = buildErrorResponse(
+                HttpStatus.BAD_REQUEST,
+                "Validation failed",
+                request
+        );
+        response.setFieldErrors(fieldErrors);
+
+        return ResponseEntity.badRequest().body(response);
     }
 
     private ErrorResponse buildErrorResponse(

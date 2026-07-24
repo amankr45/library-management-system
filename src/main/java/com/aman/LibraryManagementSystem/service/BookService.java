@@ -3,6 +3,7 @@ package com.aman.LibraryManagementSystem.service;
 import com.aman.LibraryManagementSystem.dto.request.BookRequest;
 import com.aman.LibraryManagementSystem.dto.response.BookResponse;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 
 public interface BookService {
@@ -11,7 +12,7 @@ public interface BookService {
 
     BookResponse getBookById(Long id);
 
-    Page<BookResponse> getAllBooks(int page,int size);
+    Page<BookResponse> getAllBooks(Pageable pageable);
 
     BookResponse updateBook(Long id,BookRequest request);
 

@@ -5,8 +5,10 @@ import com.aman.LibraryManagementSystem.dto.response.BookResponse;
 import com.aman.LibraryManagementSystem.service.BookService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/books")
@@ -19,9 +21,11 @@ public class BookController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public BookResponse createBook(
             @Valid
-            @RequestBody BookRequest request
+            @RequestBody
+            BookRequest request
     ) {
         return bookService.createBook(request);
     }
@@ -32,14 +36,8 @@ public class BookController {
     }
 
     @GetMapping
-    public Page<BookResponse> getAllBooks(
-            @RequestParam(defaultValue = "0")
-            int page,
-
-            @RequestParam(defaultValue = "10")
-            int size
-    ){
-        return bookService.getAllBooks(page, size);
+    public Page<BookResponse> getAllBooks(Pageable pageable){
+        return bookService.getAllBooks(pageable);
     }
 
     @PutMapping("/{id}")

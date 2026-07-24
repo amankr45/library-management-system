@@ -1,6 +1,7 @@
 package com.aman.LibraryManagementSystem.dto.error;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 public class ErrorResponse {
 
@@ -9,6 +10,7 @@ public class ErrorResponse {
     private String error;
     private String message;
     private String path;
+    private Map<String, String> fieldErrors;
 
     public ErrorResponse() {
     }
@@ -63,4 +65,13 @@ public class ErrorResponse {
         this.path = path;
     }
 
+    public Map<String, String> getFieldErrors() {
+        return fieldErrors;
+    }
+
+    public void setFieldErrors(
+            Map<String, String> fieldErrors
+    ) {
+        this.fieldErrors = fieldErrors;
+    }
 }

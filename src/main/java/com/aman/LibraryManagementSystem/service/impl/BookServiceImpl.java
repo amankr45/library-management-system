@@ -4,12 +4,12 @@ import com.aman.LibraryManagementSystem.dto.request.BookRequest;
 import com.aman.LibraryManagementSystem.dto.response.BookResponse;
 import com.aman.LibraryManagementSystem.entity.Book;
 import com.aman.LibraryManagementSystem.exception.book.BookNotFoundException;
+import com.aman.LibraryManagementSystem.exception.book.DuplicateBookException;
 import com.aman.LibraryManagementSystem.mapper.BookMapper;
 import com.aman.LibraryManagementSystem.repository.BookRepository;
 import com.aman.LibraryManagementSystem.service.BookService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,13 +28,12 @@ public class BookServiceImpl
     }
 
     @Override
-    public BookResponse createBook(
-            BookRequest request
-    ) {
-
+    public BookResponse createBook(BookRequest request) {
         Book book = mapper.toEntity(request);
+        if(repository.existsByIsbn(book.getIsbn())){
+            throw new DuplicateBookException(book.getIsbn());
+        }
         Book savedBook = repository.save(book);
-
         return mapper.toResponse(savedBook);
     }
 
@@ -48,10 +47,9 @@ public class BookServiceImpl
     }
 
     @Override
-    public Page<BookResponse> getAllBooks(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public Page<BookResponse> getAllBooks(Pageable pageable) {
         Page<Book> books = repository.findAll(pageable);
-        return books.map(mapper::toResponse);
+        return books.map(mapper :: toResponse);
     }
 
     @Override
@@ -59,13 +57,9 @@ public class BookServiceImpl
         Book book = repository.findById(id)
                 .orElseThrow(() -> new BookNotFoundException(id));
 
-        book.setTitle(request.getTitle());
-        book.setAuthor(request.getAuthor());
-        book.setIsbn(request.getIsbn());
-        book.setCategory(request.getCategory());
+        mapper.updateEntity(request,book);
 
         Book updateBook = repository.save(book);
-
         return mapper.toResponse(updateBook);
     }
 
