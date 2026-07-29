@@ -3,6 +3,8 @@ package com.aman.LibraryManagementSystem.exception.handler;
 import com.aman.LibraryManagementSystem.dto.error.ErrorResponse;
 import com.aman.LibraryManagementSystem.exception.book.BookNotFoundException;
 import com.aman.LibraryManagementSystem.exception.book.DuplicateBookException;
+import com.aman.LibraryManagementSystem.exception.member.DuplicateMemberException;
+import com.aman.LibraryManagementSystem.exception.member.MemberNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +14,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import java.util.HashMap;
 import java.util.Map;
-
-import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -50,6 +50,38 @@ public class GlobalExceptionHandler {
                 );
     }
 
+    @ExceptionHandler(DuplicateMemberException.class)
+    public ResponseEntity<ErrorResponse> handleDuplicateMemberException(
+            DuplicateMemberException exception,
+            HttpServletRequest request
+    ) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(
+                        buildErrorResponse(
+                                HttpStatus.CONFLICT,
+                                exception.getMessage(),
+                                request
+                        )
+                );
+    }
+
+    @ExceptionHandler(MemberNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleMemberNotFoundException(
+            MemberNotFoundException exception,
+            HttpServletRequest request
+    ) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(
+                        buildErrorResponse(
+                                HttpStatus.NOT_FOUND,
+                                exception.getMessage(),
+                                request
+                        )
+                );
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidationException(
             MethodArgumentNotValidException exception,
@@ -78,29 +110,12 @@ public class GlobalExceptionHandler {
             HttpServletRequest request
     ) {
 
-        ErrorResponse errorResponse = new ErrorResponse();
-
-        errorResponse.setTimestamp(
-                LocalDateTime.now()
-        );
-
-        errorResponse.setStatus(
-                status.value()
-        );
-
-        errorResponse.setError(
-                status.getReasonPhrase()
-        );
-
-        errorResponse.setMessage(
-                message
-        );
-
-        errorResponse.setPath(
+        return new ErrorResponse(
+                status.value(),
+                status.getReasonPhrase(),
+                message,
                 request.getRequestURI()
         );
-
-        return errorResponse;
     }
 
 }
