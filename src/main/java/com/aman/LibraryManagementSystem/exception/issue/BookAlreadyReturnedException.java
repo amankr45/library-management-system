@@ -1,4 +1,8 @@
 package com.aman.LibraryManagementSystem.exception.issue;
 
-public class BookAlreadyReturnedException {
+public class BookAlreadyReturnedException extends RuntimeException{
+
+    public BookAlreadyReturnedException(String message){
+        super(message);
+    }
 }

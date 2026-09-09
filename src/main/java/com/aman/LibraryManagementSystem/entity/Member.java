@@ -2,15 +2,10 @@ package com.aman.LibraryManagementSystem.entity;
 
 import com.aman.LibraryManagementSystem.enums.MembershipType;
 import com.aman.LibraryManagementSystem.enums.MemberStatus;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "members")
@@ -45,6 +40,12 @@ public class Member {
     @Column(nullable = false, length = 30)
     private MemberStatus status;
 
+    @OneToMany(
+            mappedBy = "member",
+            fetch = FetchType.LAZY
+    )
+    private List<BookIssue> bookIssues = new ArrayList<>();
+
     protected Member() {
     }
 
@@ -58,6 +59,7 @@ public class Member {
         this.email = email;
         this.phone = phone;
         this.membershipType = membershipType;
+        this.status = MemberStatus.ACTIVE;
     }
 
     public Long getId() {
@@ -102,5 +104,14 @@ public class Member {
 
     public void setStatus(MemberStatus status) {
         this.status = status;
+    }
+
+    public List<BookIssue> getBookIssues(){
+        return bookIssues;
+    }
+
+    // Relationship helper method
+    public void addBookIssues(BookIssue bookIssue){
+        bookIssues.add(bookIssue);
     }
 }

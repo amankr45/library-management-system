@@ -4,6 +4,9 @@ import com.aman.LibraryManagementSystem.enums.BookCategory;
 import com.aman.LibraryManagementSystem.enums.BookStatus;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "books")
 public class Book {
@@ -55,6 +58,12 @@ public class Book {
             nullable = false
     )
     private BookStatus status;
+
+    @OneToMany(
+            mappedBy = "book",
+            fetch = FetchType.LAZY
+    )
+    private List<BookIssue> bookIssues = new ArrayList<>();
 
     protected Book() {
     }
@@ -124,6 +133,15 @@ public class Book {
             BookStatus status
     ) {
         this.status = status;
+    }
+
+    public List<BookIssue> getBookIssues(){
+        return bookIssues;
+    }
+
+    // Relationship helper method
+    public void addBookIssue(BookIssue bookIssue){
+        bookIssues.add(bookIssue);
     }
 
     @Override

@@ -26,6 +26,9 @@ mvnw
 mvnw.cmd
 LibraryApplication.run.xml
 
+# Environment variables
+.env.*
+
 
 ### NetBeans ###
 /nbproject/private/
