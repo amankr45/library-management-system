@@ -1,0 +1,14 @@
+.git
+.gitignore
+.idea
+*.iml
+
+target/*
+!target/library-0.0.1-SNAPSHOT.jar
+
+src/test
+.env
+.env.*
+!.env.example
+
+README.md
